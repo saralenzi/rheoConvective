@@ -36,9 +36,12 @@ How to use convectiveFoam?
 
 - enter in the rheoConvectiveFoam folder and install it running 
   the script:
+  
     ./Allwmake
 
 - try it with the Case, in your tutorial folder, by
   using the following commands:
+  
     cd $WM_PROJECT_USER_DIR/tutorials/rheoConvectiveFoam/Case
+    
     ./Allrun
