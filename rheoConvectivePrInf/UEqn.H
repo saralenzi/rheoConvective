@@ -1,7 +1,6 @@
 //update viscosity 
 
-//nu = nu0*exp((E+rho0*( mag(g)*z0 + (g & mesh.C()) )*Vol)/(Rgas*(T)));
-nu = nu0*exp((E+rho0*( mag(g)*z0 - (g & mesh.C()) )*Vol)/(Rgas*(T)));
+nu = nu0*exp((E+rho0*( mag(g)*z0 + (g & mesh.C()) )*Vol)/(Rgas*(T)));
 Info << "Max and min eta: " << max(nu).value() << "\t" << min(nu).value() << endl;
 
 
