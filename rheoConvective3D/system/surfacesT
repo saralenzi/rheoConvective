@@ -1,0 +1,118 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+surfacesT
+{
+    type            surfaces;
+    libs ("libsampling.so");
+    writeControl    writeTime;
+
+    surfaceFormat   raw;
+    fields          (T);
+
+    interpolationScheme cellPoint;
+
+    surfaces
+    (
+        yNormal
+        {
+            type            cuttingPlane;
+            planeType       pointAndNormal;
+            pointAndNormalDict
+            {
+                basePoint       (0.5 0.0005 0.5);
+                normalVector    (0 1 0);
+            }
+            interpolate     true;
+        }
+
+        isoT1
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.1;
+            interpolate     true;
+        }
+        
+        isoT2
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.2;
+            interpolate     true;
+        }
+        
+        isoT3
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.3;
+            interpolate     true;
+        }
+
+        isoT4
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.4;
+            interpolate     true;
+        }
+
+        isoT5
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.5;
+            interpolate     true;
+        }
+        
+        isoT6
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.6;
+            interpolate     true;
+        }
+
+        isoT7
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.7;
+            interpolate     true;
+        }
+
+        isoT8
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.8;
+            interpolate     true;
+        }
+        
+        isoT9
+        {
+            type            isoSurface;
+            isoField        T;
+            isoValue        0.9;
+            interpolate     true;
+        }
+        
+        
+
+        //propeller
+        //{
+        //    type            patch;
+        //    patches         ("propeller.*");
+        //    interpolate     true;
+        //}
+    );
+}
+
+
+// ************************************************************************* //

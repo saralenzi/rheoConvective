@@ -1,0 +1,18 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+application=`getApplication`
+
+runApplication blockMesh
+cp 0/T.orig 0/T
+funkySetFields -time 0 -field T -keepPatches -valuePatches "fixedWalls" -expression "( 3000 - 0.0009*pos().z )"
+runApplication $application
+#runApplication streamFunctionXZV -noZero
+#runApplication postProcess -func "surfacesS(streamFunctionXZV)" -noZero
+#mv postProcessing/surfacesS\(streamFunctionXZV\)/ postProcessing/surfacesS
+
+
+#------------------------------------------------------------------------------

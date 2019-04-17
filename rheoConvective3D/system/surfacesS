@@ -1,0 +1,124 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+surfacesS
+{
+    type            surfaces;
+    libs ("libsampling.so");
+    writeControl    writeTime;
+
+    surfaceFormat   raw;
+    fields          (streamFunctionXZV);
+
+    interpolationScheme cellPoint;
+
+    surfaces
+    (
+        yNormal
+        {
+            type            cuttingPlane;
+            planeType       pointAndNormal;
+            pointAndNormalDict
+            {
+                basePoint       (1 0.0005 1);
+                normalVector    (0 1 0);
+            }
+            interpolate     true;
+        }
+        
+	isoS1
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.001;
+            interpolate     true;
+        }
+
+        isoS2
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.002;
+            interpolate     true;
+        }
+        
+	isoS4
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.004;
+            interpolate     true;
+        }
+
+        isoS6
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.006;
+            interpolate     true;
+        }
+
+        isoS8
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.008;
+            interpolate     true;
+        }
+        
+        isoS10
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.010;
+            interpolate     true;
+        }
+        
+	isoS12
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.012;
+            interpolate     true;
+        }
+
+        isoS14
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.014;
+            interpolate     true;
+        }
+
+        isoS16
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.016;
+            interpolate     true;
+        }
+
+        isoS18
+        {
+            type            isoSurface;
+            isoField        streamFunctionXZV;
+            isoValue        0.018;
+            interpolate     true;
+        }
+
+        //propeller
+        //{
+        //    type            patch;
+        //    patches         ("propeller.*");
+        //    interpolate     true;
+        //}
+    );
+}
+
+
+// ************************************************************************* //

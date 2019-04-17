@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    "(p|U)"
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-10;
+        relTol          0.01;
+    }
+
+    "(p|U)Final"
+    {
+        $p;
+        relTol          0;
+    }
+
+    "(T|k|epsilon|R)"
+    {
+        solver          PBiCGStab;
+        \\solver        PBiCG;
+        preconditioner  DILU;
+        tolerance       1e-10;
+        relTol          0.01;
+    }
+
+    "(T|k|epsilon|R)Final"
+    {
+        $T;
+        relTol          0;
+    }
+}
+
+PIMPLE
+{
+    momentumPredictor yes;
+    nOuterCorrectors 50;
+    nCorrectors     40;
+    nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       0;
+    residualControl
+    {
+        T
+        {
+            tolerance       1e-6;
+            relTol          0.;
+        }
+        P 
+        {
+            tolerance       1e-6;
+            relTol          0.;
+        }
+    
+    }
+}
+
+//#relaxationFactors
+//#{
+//#    equations
+//#    {
+//#        "(U|T|k|epsilon|R)" 1;
+//#        "(U|T|k|epsilon|R)Final" 1;
+//#    }
+//#}
+
+// ************************************************************************* //
