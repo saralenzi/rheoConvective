@@ -1,5 +1,5 @@
 # rheoConvective
-# FV infinite Pr  Rayleigh-Bénard Solver
+# FiniteVolume  infinite-Pr  Rayleigh-Bénard Solver
 ---------------------
 
 OpenFOAM code which integrates the Rayleigh-Bénard convection equations in the Boussinesq approximation.
