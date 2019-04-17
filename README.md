@@ -1,5 +1,5 @@
 # rheoConvective
-## FV infinite Pr  Rayleigh-Bénard Solver
+# FV infinite Pr  Rayleigh-Bénard Solver
 ---------------------
 OpenFOAM code which integrates the Rayleigh-Bénard convection equations in the Boussinesq approximation.
 Infinite Pr number and Pressure&Temperature viscosity dependence is introduced. 
@@ -8,12 +8,17 @@ Infinite Pr number and Pressure&Temperature viscosity dependence is introduced.
 # Main equations 
 
 div(U) = 0              ---- (PISO algorithm)
+
 ddt(U) + div( U x U ) = -grad(p) + div(stress) - beta(T-TRef) g
+
 ddt(T) + div(U T) = div(diffusion)
 
+
 where beta is the thermal expansion.    
-    
+
+
 # Dynamic (newtonian) viscosity 
+
 		eta = 1/2A * exp((E+pV)/RT)
 
 
