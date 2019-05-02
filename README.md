@@ -19,7 +19,7 @@ ddt(T) + div(U T) = div(diffusion)
 where beta is the thermal expansion.    
 
 
-Dynamic (newtonian) viscosity 
+Dynamic (newtonian) viscosity :
 
 		eta = 1/2A * exp((E+pV)/RT)
 
